@@ -1,0 +1,687 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+	font-family: "Roboto Condensed Bold";
+	font-style: normal;
+	font-weight: 700;
+	src: local('Roboto Condensed Bold'), local('RobotoCondensed-Bold'),
+		url(../fonts/robotocondensed-bold.woff2) format('woff2'),
+		url(../fonts/robotocondensed-bold.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: "Nunito Regular";
+	font-style: normal;
+	font-weight: 400;
+	src: local('Nunito Regular'), local('Nunito-Regular'),
+		url(../fonts/nunito-regular.woff2) format('woff2'),
+		url(../fonts/nunito-regular.ttf) format('truetype');
+}
+
+@media only screen and (min-width : 1000px) and (orientation : landscape) {
+	html, body {cursor: url(../images/cursor-default.png), default;}
+	* {cursor: inherit;}
+	a {text-decoration: none;}
+	a, .button, 
+	.button span, 
+	.button div,
+	#right-column img,
+	#left-column img {cursor: url(../images/cursor-pointer.png), pointer;}
+	h1, h2, h3, p {cursor: url(../images/cursor-text.png), text;}
+	::-webkit-scrollbar {width: 0px; background: transparent;}
+	::selection {background: black; color: white;}
+	::-moz-selection {background: black; color: white;}
+	html {background-color: whitesmoke;}
+	
+	.standard {font-size: 20px;}
+	.sub1 {font-size: 18px;}
+	.sub2 {font-size: 12px;}
+	.nomarg {margin: 0 auto !important;}
+	.nobord {border: none !important;}
+	.non {pointer-events: none;}
+	
+	.button {
+		display: inline-block; 
+		position: relative;
+		border: none;
+		outline: none;
+		background: white;
+		padding: 0.2em 0.2em 0 0.4em;
+		margin: 0 1em;
+		text-align: left;
+		box-sizing: border-box;
+	}
+	
+	.button span {position: absolute; margin: 0; padding: 0;}
+	#topNav, #bottomNav {position: fixed;}
+	#topNav {top: 10%; left: 10%;}
+	#bottomNav {bottom: 10%; right: 8%;}
+	#bottomNav .button {padding: 0.2em 0.1em 0 0.2em;}
+	#bottomNav a {position: relative; top: 0.1em;}
+	#topNav>div {display: inline-block;}
+	.subNav {position: absolute; margin: 10% 0 0 0;}
+	.subNav .button {display: inline-block;}
+	
+	.button a {
+		font-family: "Roboto Condensed Bold", "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 1.5em;
+		font-weight: bold;
+		letter-spacing: 0.2em;
+		color: black;
+	}
+	
+	.top-left-corner {
+		width: 0;
+		height: 0;
+		right: 100%;
+		top: 0;
+		border-bottom: black 0.7em solid;
+		border-left: 0.7em solid transparent;
+	}
+	
+	.left-side {
+		height: 100%;
+		right: 100%;
+		width: 0.7em;
+		top: 0.68em;
+		background: black;
+	}
+	
+	.right-side {
+		height: 90%;
+		right: 0;
+		width: 0.2em;
+		background: black;
+	}
+	
+	.top-side {
+		height: 0.2em;
+		width: 100%;
+		top: 0;
+		left: 0;
+		background: black;
+	}
+	
+	.bottom-side {
+		height: 0.7em;
+		left: -0.7em;
+		width: 100.5%;
+		top: 100%;
+		background: black;
+	}
+	
+	.bottom-right-corner {
+		width: 0;
+		height: 0;
+		top: 100%;
+		right: 0;
+		border-top: black 0.7em solid;
+		border-right: 0.7em solid transparent;
+	}
+	
+	.button:hover {
+		-ms-transform: translate(-0.2em, 0.2em); /* IE 9 */
+	    -webkit-transform: translate(-0.2em, 0.2em); /* Safari */
+	    transform: translate(-0.2em, 0.2em);
+	}
+	
+	.button:hover .top-left-corner {
+		border-bottom: black 0.5em solid;
+		border-left: 0.5em solid transparent;
+	}
+	
+	.button:hover .left-side {
+		width: 0.5em;
+		top: 0.5em;
+	}
+	
+	.button:hover .bottom-side {
+		height: 0.5em;
+		left: -0.5em;
+	}
+	
+	.button:hover .bottom-right-corner {
+		border-top: black 0.5em solid;
+		border-right: 0.5em solid transparent;
+	}
+	
+	.button:active {
+		-ms-transform: translate(-0.5em, 0.5em); /* IE 9 */
+	    -webkit-transform: translate(-0.5em, 0.5em); /* Safari */
+	    transform: translate(-0.5em, 0.5em);
+	}
+	
+	.button:active .top-left-corner {
+		border-bottom: black 0.2em solid;
+		border-left: black 0.2em solid;
+	}
+	
+	.button:active .left-side {
+		width: 0.2em;
+		top: 0.2em;
+	}
+	
+	.button:active .bottom-side {
+		height: 0.2em;
+		left: -0.2em;
+	}
+	
+	.button:active .bottom-right-corner {
+		border-top: black 0.2em solid;
+		border-right: black 0.2em solid;
+	}
+	
+	.sub2 .right-side {height: 95%;}
+	.sub2:hover .right-side {height: 95%;}
+	
+	.border, .corner {position: fixed; z-index: 2;}
+	.border {background: #0A0A0A;}
+	.top, .bottom {left: 0; right: 0; height: 15px;}
+	.left, .right {top: 0; bottom: 0; width: 15px;}
+	.top {top: 0;}
+	.bottom {bottom: 0;}
+	.left {left: 0;}
+	.right {right: 0;}
+	.TL {top: 15px; left: 15px;}
+	.BR {bottom: 55px; right: 55px;}
+	.triangle {position: fixed; width: 0; height: 0;}
+	
+	.TL .triangle {
+		border-top: 40px solid #0A0A0A;
+		border-right: 40px solid transparent;
+	}
+
+	.BR .triangle {
+		border-bottom: 40px solid #0A0A0A;
+		border-left: 40px solid transparent;
+	}
+	
+	.switch, .switch2 {
+		position: absolute;
+		font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+		font-weight: bold;
+		font-size: 30px;
+		color: white;
+		cursor: url(../images/cursor-pointer.png), pointer;
+	}
+	
+	.TL .switch {top: -40px;}
+	.TL .switch2 {top: -36px;}
+	.BR .switch {bottom: -75px; right: -40px;}
+	.BR .switch2 {bottom: -78px; right: -40px;}
+	.switch:hover, .switch2:hover {color: #CCC;}
+	.switch:active, .switch2:active {color: #777;}
+	
+	.button, .corner {
+		-webkit-touch-callout: none; /* iOS Safari */
+	    -webkit-user-select: none; /* Safari */
+	       -moz-user-select: none; /* Firefox */
+	        -ms-user-select: none; /* Internet Explorer/Edge */
+	            user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+	}
+	
+	#worknav, #playnav, #storenav, #infonav {display: none; z-index: 0;}
+	#infonav {width: 50%;}
+	#infonav .close {z-index: 3;}
+	.close a {font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;}
+	
+	.info {
+		display: inline;
+		font-family: "Nunito Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-weight: bold;
+		letter-spacing: 0.07em;
+		line-height: 1.5em;
+		color: #333;
+		vertical-align: top;
+	}
+	
+	#mail, #call {display: inline-block; position: relative; left: 1px; top: 2px;}
+	#mail {padding: 0.2em 0.2em 0 0.4em;}
+	#call {padding: 0.2em 0.4em 0 0.1em;}
+	#mail a {padding: 0 0.4em 0 0;}
+	#call a {padding: 0.2em 0 0 0;}
+	#call .left-side {top: 0.66em;}
+	#call:hover .left-side {top: 0; height: 101%;}
+	#mail a, #call a {display: inline; vertical-align: bottom; position: relative; top: 2px;}
+	#mail p, #call p {cursor: url(../images/cursor-pointer.png), pointer;}
+	#pdf, #print {display: inline-block; margin: 0; padding: 0.2em 0.1em 0 0.2em;}
+	#pdf .right-side, #print .right-side {height: 95%;}
+	#pdf a, #print a {position: relative; top: 0.1em; font-size: 1.44em;}
+	#resume {margin: 0 0 0 1em; z-index: 2;}
+	#pdf {z-index: 1;}
+	#print {z-index: 0;}
+	
+	.parallax-parent {
+		position: fixed;
+		top: 0; left: 0; bottom: 0; right: 0;
+		width: 100%;
+		padding: 0 0 100vh 0;
+		margin: 15px;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		perspective: 1px;
+		perspective-origin: 0 0;
+		background: #0094F2; /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(left, #0094F2, #F7517F); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(right, #0094F2, #F7517F); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(right, #0094F2, #F7517F); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(to right, #0094F2, #F7517F); /* Standard syntax */ 
+	}
+	
+	.parallax {width: 25%; position: relative;}
+	.parallax a {width: 100%; max-height: 50%; display: flex; align-items: center;}
+	.parallax a:hover img {visibility: hidden;}
+	.parallax img {width: 100%; display: block;}
+	.lcd {background: #eb3165;}
+	.patch {background: #974273;}
+	.pipe {background: #6f45ad;}
+	.bmd {background: #5c4fd6;}
+	.tou {background: #10bbcc;}
+	.unify {background: #249393;}
+	.caps {background: #46990a;}
+	
+	.lcd.gradient {
+		background: #fd779d; /* For browsers that do not support gradients */
+	    background: -webkit-linear-gradient(#eb3165, #fd779d); /* For Safari 5.1 to 6.0 */
+	    background: -o-linear-gradient(#eb3165, #fd779d); /* For Opera 11.1 to 12.0 */
+	    background: -moz-linear-gradient(#eb3165, #fd779d); /* For Firefox 3.6 to 15 */
+	    background: linear-gradient(#eb3165, #fd779d); /* Standard syntax */
+	}
+	
+	.patch.gradient {
+		background: #974273; /* For browsers that do not support gradients */
+	    background: -webkit-linear-gradient(#7d0d4e, #974273); /* For Safari 5.1 to 6.0 */
+	    background: -o-linear-gradient(#7d0d4e, #974273); /* For Opera 11.1 to 12.0 */
+	    background: -moz-linear-gradient(#7d0d4e, #974273); /* For Firefox 3.6 to 15 */
+	    background: linear-gradient(#7d0d4e, #974273); /* Standard syntax */
+	}
+	
+	.pipe.gradient {
+		background: #6f45ad; /* For browsers that do not support gradients */
+	    background: -webkit-linear-gradient(#582c99, #8d55aa); /* For Safari 5.1 to 6.0 */
+	    background: -o-linear-gradient(#582c99, #8d55aa); /* For Opera 11.1 to 12.0 */
+	    background: -moz-linear-gradient(#582c99, #8d55aa); /* For Firefox 3.6 to 15 */
+	    background: linear-gradient(#582c99, #8d55aa); /* Standard syntax */
+	}
+	
+	.bmd.gradient {
+		background: #5c4fd6; /* For browsers that do not support gradients */
+	    background: -webkit-linear-gradient(#5c4fd6, #8c84d6); /* For Safari 5.1 to 6.0 */
+	    background: -o-linear-gradient(#5c4fd6, #8c84d6); /* For Opera 11.1 to 12.0 */
+	    background: -moz-linear-gradient(#5c4fd6, #8c84d6); /* For Firefox 3.6 to 15 */
+	    background: linear-gradient(#5c4fd6, #8c84d6); /* Standard syntax */
+	}
+	
+	.tou.gradient {
+		background: #10bbcc; /* For browsers that do not support gradients */
+	    background: -webkit-linear-gradient(#10bbcc, #97DAE0); /* For Safari 5.1 to 6.0 */
+	    background: -o-linear-gradient(#10bbcc, #97DAE0); /* For Opera 11.1 to 12.0 */
+	    background: -moz-linear-gradient(#10bbcc, #97DAE0); /* For Firefox 3.6 to 15 */
+	    background: linear-gradient(#10bbcc, #97DAE0); /* Standard syntax */
+	}
+	
+	.unify.gradient {
+		background: #249393; /* For browsers that do not support gradients */
+	    background: -webkit-linear-gradient(#249393, #66CCCC); /* For Safari 5.1 to 6.0 */
+	    background: -o-linear-gradient(#249393, #66CCCC); /* For Opera 11.1 to 12.0 */
+	    background: -moz-linear-gradient(#249393, #66CCCC); /* For Firefox 3.6 to 15 */
+	    background: linear-gradient(#249393, #66CCCC); /* Standard syntax */
+	}
+	
+	.caps.gradient {
+		background: #46990a; /* For browsers that do not support gradients */
+	    background: -webkit-linear-gradient(#46990a, #B6C989); /* For Safari 5.1 to 6.0 */
+	    background: -o-linear-gradient(#46990a, #B6C989); /* For Opera 11.1 to 12.0 */
+	    background: -moz-linear-gradient(#46990a, #B6C989); /* For Firefox 3.6 to 15 */
+	    background: linear-gradient(#46990a, #B6C989); /* Standard syntax */
+	}
+	
+	.about.gradient {
+		background: #0094F2; /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(#F7517F, #0094F2); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(#F7517F, #0094F2); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#F7517F, #0094F2); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(#F7517F, #0094F2); /* Standard syntax */
+	}
+	
+	.col1 {
+		top: 100vh;
+		left: 0;
+		transform-origin: 0 0; 
+		transform: translateZ(-4px) scale(5);
+	}
+	
+	.col2 {
+		top: -50vh;
+		left: 150vw;
+		transform-origin: 0 0; 
+		transform: translateZ(-5px) scale(6);
+	}
+	
+	.col3 {
+		top: -225vh;
+		left: 200vw;
+		transform-origin: 0 0; 
+		transform: translateZ(-3px) scale(4);
+	}
+	
+	.col4 {
+		top: -425vh;
+		left: 375vw;
+		transform-origin: 0 0; 
+		transform: translateZ(-4px) scale(5);
+	}
+	
+	#pipe-a {background: #555; padding: 10% 0;}
+	#skull {
+		background: #beffff; /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(160deg, #beffff 12%, #ff6a97); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(160deg, #beffff 12%, #ff6a97); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(160deg, #beffff 12%, #ff6a97); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(160deg, #beffff 12%, #ff6a97); /* Standard syntax */
+		padding: 15% 0;
+	}
+
+	.details {
+		display: none; 
+		position: absolute; 
+		width: 100%; 
+		text-align: center;
+	}
+	
+	.parallax a:hover .details {display: block;}
+	.software {color: white; padding: 10px 5px; line-height: 2em;}
+	.software span {margin: 0 3px;}
+	
+	.title {
+		font-family: "Roboto Condensed Bold", "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 24px;
+		font-weight: bold;
+		letter-spacing: 4px;
+		color: white;
+		max-width: 80%;
+		margin: auto;
+	}
+	
+	.tags {
+		font-family: "Nunito Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 16px;
+		font-weight: bold;
+		letter-spacing: 2px;
+		color: whitesmoke;
+	}
+	
+	.tooltip {position: relative; display: inline-block; font-size: 26px;}
+	
+	.tooltiptext {
+		font-family: "Courier New", "Consolas", monospace;
+		font-size: 13px;
+		font-weight: bold;
+		letter-spacing: 1px;
+		line-height: 1.2em;
+	}
+	
+	.tooltip .tooltiptext {
+		visibility: hidden;
+		max-width: 100px;
+		background-color: black;
+		color: whitesmoke;
+		position: absolute;
+		top: 80%;
+		right: 65%;
+		z-index: 1;
+		opacity: 0;
+		-webkit-transition: 0.3s opacity;
+		-moz-transition: 0.3s opacity;
+		-ms-transition: 0.3s opacity;
+		-o-transition: 0.3s opacity;
+		transition: 0.3s opacity;
+	}
+	
+	.tooltip:hover .tooltiptext {visibility: visible; opacity: 1;}
+	
+	.container {
+		position: fixed;
+		width: 100vw;
+		height: 100%;
+		overflow: hidden;
+	}
+	
+	#left-column, #right-column {
+		display: inline-block;
+		position: absolute;
+		width: 50vw;
+		height: 100%;
+		overflow-x: hidden;
+		overflow-y: scroll;
+	}
+	
+	#left-column {left: 0;}
+	#right-column {left: 50vw;}
+	#right-column img, #right-column video {display: block; max-width: 100%;}
+	#right-column img {margin: auto auto 40% auto;}
+	
+	.project {
+		width: 80%; 
+		max-width: 750px; 
+		margin: 15% 8% 10% auto; 
+		box-sizing: border-box;
+	}
+	
+	.project-header {
+		float: right; 
+		width: 100%; 
+		font-size: 32px; 
+		position: relative; 
+	}
+	
+	.paper-corner {
+		position: relative;
+		float: left;
+		clear: both;
+		width: 0; 
+		height: 0;
+	}
+	
+	.inner {
+		top: 0.68em;
+		left: 0.05em;
+		border-bottom: #eee 2em solid;
+		border-left: 2em solid transparent;
+	}
+	
+	.outer {
+		top: 2.9em;
+		right: 0.5em;
+		border-bottom: black 2.9em solid;
+		border-left: 2.8em solid transparent;
+	}
+	
+	.corner-padding {
+		position: absolute;
+		width: calc(100% + 0.25em);
+		height: calc(100% - 5.8em);
+		bottom: 0;
+		right: 0;
+		z-index: -1;
+		background: whitesmoke;
+		border-style: solid;
+		border-color: black;
+		border-width: 0 0 0 0.25em;
+	}
+	
+	.project-title {
+		display: inline-block;
+		float: right;
+		width: calc(100% - 2.55em - 10px);
+		padding: 1.4em 5px 0 5px;
+		background: whitesmoke;
+		border-style: solid;
+		border-color: black;
+		border-width: 0.25em 0.25em 0 0;
+		font-family: "Roboto Condensed Bold", "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-weight: bold;
+		letter-spacing: 0.17em;
+		color: black;
+		text-align: center;
+	}
+	
+	.project-body {
+		float: right;
+		width: 100%;
+		font-size: 16px;
+		padding: 20px 0 0 0;
+		margin: 0 0 100px 0;
+		background: whitesmoke;
+		border-style: solid;
+		border-color: black;
+		border-width: 0 0.5em 0.5em 0.5em;
+	}
+	
+	.project-tags {
+		width: 65%;
+		margin: 5% auto;
+	}
+	
+	.project-tags p {
+		display: inline;
+		font-family: "Courier New", "Consolas", monospace;
+		font-size: 0.8em;
+		font-weight: bold;
+		letter-spacing: 1px;
+		line-height: 1.8em;
+		background: black;
+		color: white;
+		padding: 1px 0.5em;
+		margin: 0 10% 0 0;
+		white-space: nowrap;
+	}
+	
+	.project-software {
+		width: 50%; 
+		margin: 10% auto;
+		font-size: 14px;
+	}
+	
+	.project-software p {
+		font-family: "Nunito Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-weight: bold;
+		letter-spacing: 0.1em;
+		line-height: 0.8em;
+	}
+	
+	.project-software span {
+		font-size: 1.75em; 
+		padding: 0 0.5em 0 0; 
+		vertical-align: sub;
+		position: relative;
+		top: 0.1em;
+	}
+	
+	.project-content {
+		width: 80%;
+		margin: auto;
+		font-size: 16px;
+	}
+	
+	.project-content h2 {
+		font-family: "Roboto Condensed Bold", "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-weight: bold;
+		letter-spacing: 0.1em;
+		color: black;
+		margin: 8% 0 0 0;
+	}
+	
+	.project-content p {
+		font-family: "Nunito Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		letter-spacing: 2px;
+		word-spacing: 0.1em;
+		line-height: 1.6em;
+		margin: 5% auto;
+	}
+	
+	figure {
+		display: block; 
+		width: 100%; 
+		margin: 5% auto 5% auto; 
+		vertical-align: top;
+	}
+	
+	.project-content img, .project-content video {
+		max-width: 100%;
+		border: 2px solid black;
+	}
+	
+	.pic100 {max-width: 100%; margin: auto;}
+	.pic75 {width: 75%; margin: 10% auto;}
+	.pic60 {width: 60%; margin: 20% auto;}
+	.pic50 {width: 50%; margin: 25% auto;}
+	.pic30 {display: inline !important; width: 30%; margin: auto 1.5%;}
+	.leftpic, .rightpic {display: inline-block; width: 45%;}
+	.leftpic {padding: 0 5% 0 0;}
+	.rightpic {padding: 0 0 0 5%;}
+	
+	figcaption {
+		display: inline;
+		max-width: 100%;
+		font-family: "Courier New", "Consolas", monospace;
+		font-size: 0.8em;
+		font-weight: bold;
+		letter-spacing: 1px;
+		background: black;
+		color: white;
+		box-shadow: 1px 0 0 black, -1px 0 0 black;
+		-webkit-box-decoration-break: clone;
+		box-decoration-break: clone;
+	}
+	
+	.foot {
+		font-family: "Nunito Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 0.8em;
+		letter-spacing: 2px;
+		word-spacing: 0.1em;
+		margin: 15% 0 0 0;
+	}
+	
+	.copy {
+		display: inline-block;
+		font-family: "Courier New", "Consolas", monospace;
+		font-size: 0.8em;
+		font-weight: bold;
+		letter-spacing: 1px;
+		background: black;
+		color: white;
+		padding: 0 0.5em;
+		margin: 5px 0 40px 0;
+	}
+	
+	#modal {
+		display: none;
+		position: fixed;
+		z-index: 1;
+		background: rgb(30,30,30);
+		background: rgba(30,30,30,0.80);
+		width: 100vw;
+		height: 100vh;
+		text-align: center;
+		overflow: auto;
+	}
+	
+	.modal img {
+		max-width: 100%;
+		margin: 0;
+	}
+}
+
+
+@-moz-document url-prefix() {
+	@media screen and (orientation : landscape) {
+		html, body {overflow-x: hidden;}
+		.parallax-parent {width: calc(100% + 2px); padding: 0 0 20vh 0;}
+		.parallax {width: calc(25% + 4px);}
+		#left-column {width: calc(50vw + 15px); padding-right: 15px;}
+		.col2, .col4 {padding: 0 0 100px 0;}
+		.button:hover .bottom-right-corner {top: 99%;}
+		#print .bottom-side, .close .bottom-side {width: 102%;}
+	}
+}
